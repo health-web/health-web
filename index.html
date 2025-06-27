@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HealthHub Pro - Your Complete Health Companion</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #0a0a0a;
+        color: #e0e0e0;
+        overflow-x: hidden;
+      }
+
+      .hero-section {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+          url("https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/62f4c4a8-2893-414a-98c3-ea6b2750db3f.png")
+            center/cover no-repeat;
+        height: 90vh;
+      }
+
+      .input-glow:focus {
+        box-shadow: 0 0 10px rgba(74, 222, 128, 0.5);
+      }
+
+      .card {
+        background: #1a1a1a;
+        transition: transform 0.3s, box-shadow 0.3s;
+        border-top: 3px solid #4ade80;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .health-indicator {
+        height: 8px;
+        border-radius: 4px;
+        background: linear-gradient(90deg, #4ade80, #3b82f6);
+      }
+
+      .symptom-item {
+        transition: all 0.3s;
+      }
+
+      .symptom-item:hover {
+        background-color: #2a2a2a;
+        transform: scale(1.02);
+      }
+
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.5;
+        }
+      }
+
+      .animate-pulse {
+        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="bg-gray-900 text-white sticky top-0 z-50 shadow-lg">
+      <div
+        class="container mx-auto px-4 py-3 flex justify-between items-center"
+      >
+        <div class="flex items-center space-x-2">
+          <i class="fas fa-heartbeat text-2xl text-green-400"></i>
+          <span class="text-xl font-bold"
+            >Health<span class="text-green-400">Hub</span>Pro</span
+          >
+        </div>
+        <div class="hidden md:flex space-x-8">
+          <a href="#" class="hover:text-green-400 transition">Home</a>
+          <a href="#services" class="hover:text-green-400 transition"
+            >Services</a
+          >
+          <a href="#symptoms" class="hover:text-green-400 transition"
+            >Symptoms Checker</a
+          >
+          <a href="#articles" class="hover:text-green-400 transition"
+            >Articles</a
+          >
+          <a href="#contact" class="hover:text-green-400 transition">Contact</a>
+        </div>
+        <div class="flex items-center space-x-4">
+          <button
+            class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md transition"
+          >
+            Sign In
+          </button>
+          <button class="md:hidden text-xl">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      class="hero-section flex items-center justify-center text-center px-4"
+    >
+      <div class="max-w-4xl">
+        <h1 class="text-4xl md:text-6xl font-bold mb-6">
+          Your Health. <span class="text-green-400">Our Priority.</span>
+        </h1>
+        <p class="text-xl md:text-2xl mb-8 text-gray-300">
+          Access reliable health information, symptom checking, and wellness
+          tips from trusted medical professionals.
+        </p>
+        <div class="relative max-w-xl mx-auto">
+          <input
+            type="text"
+            placeholder="Search for symptoms, conditions, or treatments..."
+            class="w-full py-4 px-6 rounded-full bg-gray-800 text-white border border-gray-700 focus:outline-none input-glow"
+          />
+          <button
+            class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-green-500 text-white p-3 rounded-full hover:bg-green-600 transition"
+          >
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+        <p class="mt-6 text-gray-400">
+          Trusted by over 2 million users worldwide
+        </p>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 bg-gray-900">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div class="p-6">
+            <div class="text-4xl font-bold text-green-400 mb-2">10,000+</div>
+            <div class="text-gray-400">Medical Articles</div>
+          </div>
+          <div class="p-6">
+            <div class="text-4xl font-bold text-blue-400 mb-2">500+</div>
+            <div class="text-gray-400">Healthcare Professionals</div>
+          </div>
+          <div class="p-6">
+            <div class="text-4xl font-bold text-purple-400 mb-2">2M+</div>
+            <div class="text-gray-400">Monthly Users</div>
+          </div>
+          <div class="p-6">
+            <div class="text-4xl font-bold text-yellow-400 mb-2">24/7</div>
+            <div class="text-gray-400">Support Available</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            Our <span class="text-green-400">Services</span>
+          </h2>
+          <p class="max-w-2xl mx-auto text-gray-400">
+            Comprehensive healthcare services at your fingertips
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Service Card 1 -->
+          <div class="card p-8 rounded-lg">
+            <div
+              class="w-16 h-16 bg-green-900 rounded-full flex items-center justify-center mb-4"
+            >
+              <i class="fas fa-stethoscope text-2xl text-green-400"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Symptom Checker</h3>
+            <p class="text-gray-400 mb-4">
+              Input your symptoms and receive possible conditions from our
+              AI-powered diagnostic tool.
+            </p>
+            <a
+              href="#"
+              class="text-green-400 hover:text-green-300 flex items-center transition"
+            >
+              Learn More <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+
+          <!-- Service Card 2 -->
+          <div class="card p-8 rounded-lg">
+            <div
+              class="w-16 h-16 bg-blue-900 rounded-full flex items-center justify-center mb-4"
+            >
+              <i class="fas fa-book-medical text-2xl text-blue-400"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Health Library</h3>
+            <p class="text-gray-400 mb-4">
+              Access our comprehensive database of medical conditions,
+              treatments, and wellness information.
+            </p>
+            <a
+              href="#"
+              class="text-blue-400 hover:text-blue-300 flex items-center transition"
+            >
+              Learn More <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+
+          <!-- Service Card 3 -->
+          <div class="card p-8 rounded-lg">
+            <div
+              class="w-16 h-16 bg-purple-900 rounded-full flex items-center justify-center mb-4"
+            >
+              <i class="fas fa-user-md text-2xl text-purple-400"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Doctor Consultation</h3>
+            <p class="text-gray-400 mb-4">
+              Connect instantly with certified doctors for virtual consultations
+              and medical advice.
+            </p>
+            <a
+              href="#"
+              class="text-purple-400 hover:text-purple-300 flex items-center transition"
+            >
+              Learn More <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Symptom Checker Section -->
+    <section id="symptoms" class="py-20 bg-gray-900">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            Symptom <span class="text-green-400">Checker</span>
+          </h2>
+          <p class="max-w-2xl mx-auto text-gray-400">
+            Select your symptoms to get personalized health information
+          </p>
+        </div>
+
+        <div class="max-w-4xl mx-auto">
+          <div class="mb-8">
+            <h3 class="text-xl font-semibold mb-4">Common Symptoms</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+              <div
+                class="symptom-item bg-gray-800 p-3 rounded-lg text-center cursor-pointer hover:shadow-lg transition"
+              >
+                <img
+                  src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/8aac89e8-881c-48be-b955-f62c7b286e92.png"
+                  alt="Fever illustration with thermometer showing high temperature"
+                  class="w-14 h-14 mx-auto mb-2"
+                />
+                <div>Fever</div>
+              </div>
+              <div
+                class="symptom-item bg-gray-800 p-3 rounded-lg text-center cursor-pointer hover:shadow-lg transition"
+              >
+                <img
+                  src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/51695929-f2f2-4443-927a-48404c8e3e61.png"
+                  alt="Cough illustration with person covering mouth while coughing"
+                  class="w-14 h-14 mx-auto mb-2"
+                />
+                <div>Cough</div>
+              </div>
+              <div
+                class="symptom-item bg-gray-800 p-3 rounded-lg text-center cursor-pointer hover:shadow-lg transition"
+              >
+                <img
+                  src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/218b1339-4f6e-40ab-9afc-a4415f95c60d.png"
+                  alt="Headache illustration with person holding head in pain"
+                  class="w-14 h-14 mx-auto mb-2"
+                />
+                <div>Headache</div>
+              </div>
+              <div
+                class="symptom-item bg-gray-800 p-3 rounded-lg text-center cursor-pointer hover:shadow-lg transition"
+              >
+                <img
+                  src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/9e86ddc3-6b13-483e-8911-d6152cabde43.png"
+                  alt="Nausea illustration with sick person holding stomach"
+                  class="w-14 h-14 mx-auto mb-2"
+                />
+                <div>Nausea</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-8">
+            <h3 class="text-xl font-semibold mb-4">Body Parts</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+              <div
+                class="symptom-item bg-gray-800 p-3 rounded-lg text-center cursor-pointer hover:shadow-lg transition"
+              >
+                <img
+                  src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a4e5c0c5-4dad-462a-a9b3-5f6b8a8da7ab.png"
+                  alt="Head and neck anatomy illustration highlighting those areas"
+                  class="w-14 h-14 mx-auto mb-2"
+                />
+                <div>Head/Neck</div>
+              </div>
+              <div
+                class="symptom-item bg-gray-800 p-3 rounded-lg text-center cursor-pointer hover:shadow-lg transition"
+              >
+                <img
+                  src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/af5999aa-9466-4469-855a-4fc898fe64ca.png"
+                  alt="Chest and lungs anatomy illustration showing respiratory system"
+                  class="w-14 h-14 mx-auto mb-2"
+                />
+                <div>Chest</div>
+              </div>
+              <div
+                class="symptom-item bg-gray-800 p-3 rounded-lg text-center cursor-pointer hover:shadow-lg transition"
+              >
+                <img
+                  src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/184e5558-901d-443a-b001-642b959e3329.png"
+                  alt="Abdomen anatomy illustration highlighting digestive organs"
+                  class="w-14 h-14 mx-auto mb-2"
+                />
+                <div>Abdomen</div>
+              </div>
+              <div
+                class="symptom-item bg-gray-800 p-3 rounded-lg text-center cursor-pointer hover:shadow-lg transition"
+              >
+                <img
+                  src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/158570fc-c8e1-4144-bb90-7ef49901db26.png"
+                  alt="Legs and feet anatomy illustration showing musculoskeletal structure"
+                  class="w-14 h-14 mx-auto mb-2"
+                />
+                <div>Limbs</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center mt-12">
+            <button
+              class="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-md text-lg font-semibold transition"
+            >
+              Check My Symptoms
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Articles Section -->
+    <section id="articles" class="py-20">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            Health <span class="text-green-400">Articles</span>
+          </h2>
+          <p class="max-w-2xl mx-auto text-gray-400">
+            Latest medical research and wellness advice
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Article 1 -->
+          <div class="card overflow-hidden rounded-lg">
+            <div class="h-48 overflow-hidden">
+              <img
+                src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/fd66881e-169d-405e-99ba-6819142d4c59.png"
+                alt="Healthy heart with glowing pulse lines and medical diagram overlay"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="p-6">
+              <div class="flex items-center mb-3">
+                <span class="text-green-400 text-sm">Cardiology</span>
+                <span class="text-gray-500 text-sm mx-2">•</span>
+                <span class="text-gray-500 text-sm">May 15, 2023</span>
+              </div>
+              <h3 class="text-xl font-bold mb-3">
+                10 Heart-Healthy Habits You Should Follow
+              </h3>
+              <p class="text-gray-400 mb-4">
+                Discover simple lifestyle changes that can significantly improve
+                your cardiovascular health and reduce risk factors.
+              </p>
+              <a
+                href="#"
+                class="text-green-400 hover:text-green-300 flex items-center transition"
+              >
+                Read More <i class="fas fa-arrow-right ml-2"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Article 2 -->
+          <div class="card overflow-hidden rounded-lg">
+            <div class="h-48 overflow-hidden">
+              <img
+                src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/716c1902-54fb-4f28-b403-55fd48149122.png"
+                alt="Person meditating at sunrise with overlay of brain scan showing activity"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="p-6">
+              <div class="flex items-center mb-3">
+                <span class="text-blue-400 text-sm">Mental Health</span>
+                <span class="text-gray-500 text-sm mx-2">•</span>
+                <span class="text-gray-500 text-sm">April 28, 2023</span>
+              </div>
+              <h3 class="text-xl font-bold mb-3">
+                Managing Stress with Mindfulness Techniques
+              </h3>
+              <p class="text-gray-400 mb-4">
+                Effective mindfulness practices that can help reduce stress and
+                improve your overall mental wellbeing in just minutes a day.
+              </p>
+              <a
+                href="#"
+                class="text-blue-400 hover:text-blue-300 flex items-center transition"
+              >
+                Read More <i class="fas fa-arrow-right ml-2"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Article 3 -->
+          <div class="card overflow-hidden rounded-lg">
+            <div class="h-48 overflow-hidden">
+              <img
+                src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/fe108417-3971-4b76-a711-1f1045734b7c.png"
+                alt="Colorful array of fresh fruits and vegetables arranged in rainbow pattern"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="p-6">
+              <div class="flex items-center mb-3">
+                <span class="text-purple-400 text-sm">Nutrition</span>
+                <span class="text-gray-500 text-sm mx-2">•</span>
+                <span class="text-gray-500 text-sm">April 10, 2023</span>
+              </div>
+              <h3 class="text-xl font-bold mb-3">
+                Superfoods for Immune System Boost
+              </h3>
+              <p class="text-gray-400 mb-4">
+                Science-backed superfoods that can naturally enhance your immune
+                response and help protect against illnesses.
+              </p>
+              <a
+                href="#"
+                class="text-purple-400 hover:text-purple-300 flex items-center transition"
+              >
+                Read More <i class="fas fa-arrow-right ml-2"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <button
+            class="border-2 border-green-500 text-green-500 hover:bg-green-500 hover:text-white px-8 py-3 rounded-md text-lg font-semibold transition"
+          >
+            View All Articles
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Emergency Section -->
+    <section class="py-16 bg-red-900 text-white">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row items-center justify-between">
+          <div class="md:w-1/2 mb-8 md:mb-0">
+            <h2 class="text-3xl font-bold mb-4">
+              Emergency <span class="text-yellow-300">Assistance</span>
+            </h2>
+            <p class="text-lg mb-6">
+              In case of medical emergency, please call your local emergency
+              number immediately.
+            </p>
+            <div class="bg-black bg-opacity-30 p-6 rounded-lg">
+              <div class="flex items-center mb-4">
+                <i class="fas fa-phone-alt text-2xl text-red-400 mr-4"></i>
+                <div>
+                  <div class="text-sm text-gray-300">Europe, India, UK</div>
+                  <div class="text-xl font-semibold">112</div>
+                </div>
+              </div>
+              <div class="flex items-center">
+                <i class="fas fa-phone-alt text-2xl text-red-400 mr-4"></i>
+                <div>
+                  <div class="text-sm text-gray-300">United States, Canada</div>
+                  <div class="text-xl font-semibold">911</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="md:w-1/2 flex justify-center">
+            <div class="bg-black bg-opacity-30 p-6 rounded-lg max-w-md">
+              <img
+                src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/735f01f2-7963-488f-827c-a0df27329ea6.png"
+                alt="Emergency medical services responding with ambulance and medical team in action"
+                class="w-full rounded-lg mb-4"
+              />
+              <h3 class="text-xl font-semibold mb-2">
+                When to Call Emergency Services
+              </h3>
+              <ul class="list-disc pl-5 text-gray-300">
+                <li class="mb-1">
+                  Difficulty breathing or shortness of breath
+                </li>
+                <li class="mb-1">Chest pain or pressure</li>
+                <li class="mb-1">Sudden severe pain anywhere in the body</li>
+                <li class="mb-1">Uncontrolled bleeding</li>
+                <li class="mb-1">Sudden confusion or difficulty speaking</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            Contact <span class="text-green-400">Us</span>
+          </h2>
+          <p class="max-w-2xl mx-auto text-gray-400">
+            Have questions? We're here to help
+          </p>
+        </div>
+
+        <div class="max-w-4xl mx-auto bg-gray-900 rounded-lg overflow-hidden">
+          <div class="md:flex">
+            <div class="md:w-1/2 p-8 md:p-12">
+              <h3 class="text-2xl font-bold mb-6">Send us a message</h3>
+              <form>
+                <div class="mb-6">
+                  <label for="name" class="block text-gray-400 mb-2"
+                    >Name</label
+                  >
+                  <input
+                    type="text"
+                    id="name"
+                    class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-green-500"
+                  />
+                </div>
+                <div class="mb-6">
+                  <label for="email" class="block text-gray-400 mb-2"
+                    >Email</label
+                  >
+                  <input
+                    type="email"
+                    id="email"
+                    class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-green-500"
+                  />
+                </div>
+                <div class="mb-6">
+                  <label for="message" class="block text-gray-400 mb-2"
+                    >Message</label
+                  >
+                  <textarea
+                    id="message"
+                    rows="4"
+                    class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-green-500"
+                  ></textarea>
+                </div>
+                <button
+                  class="w-full bg-green-500 hover:bg-green-600 text-white py-3 rounded-md font-semibold transition"
+                >
+                  Send Message
+                </button>
+              </form>
+            </div>
+            <div class="md:w-1/2 bg-gray-800 p-8 md:p-12">
+              <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+              <div class="space-y-6">
+                <div class="flex items-start">
+                  <i class="fas fa-map-marker-alt text-green-400 mt-1 mr-4"></i>
+                  <div>
+                    <h4 class="font-semibold">Address</h4>
+                    <p class="text-gray-400">
+                      123 Health Street, Medical District, HLT 456, USA
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <i class="fas fa-phone-alt text-green-400 mt-1 mr-4"></i>
+                  <div>
+                    <h4 class="font-semibold">Phone</h4>
+                    <p class="text-gray-400">+1 (800) 123-4567</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <i class="fas fa-envelope text-green-400 mt-1 mr-4"></i>
+                  <div>
+                    <h4 class="font-semibold">Email</h4>
+                    <p class="text-gray-400">info@healthhubpro.com</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <i class="fas fa-clock text-green-400 mt-1 mr-4"></i>
+                  <div>
+                    <h4 class="font-semibold">Hours</h4>
+                    <p class="text-gray-400">24/7 Support Available</p>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-8 pt-6 border-t border-gray-700">
+                <h4 class="font-semibold mb-4">Follow Us</h4>
+                <div class="flex space-x-4">
+                  <a
+                    href="#"
+                    class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-green-500 transition"
+                  >
+                    <i class="fab fa-facebook-f"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-green-500 transition"
+                  >
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-green-500 transition"
+                  >
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-green-500 transition"
+                  >
+                    <i class="fab fa-linkedin-in"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- App Download Section -->
+    <section class="py-16 bg-gradient-to-r from-green-900 to-blue-900">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row items-center">
+          <div class="md:w-1/2 mb-8 md:mb-0">
+            <img
+              src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2dcba500-4c1f-4501-a845-cb965cd1c65e.png"
+              alt="HealthHub Pro mobile app interface showing health tracking features"
+              class="mx-auto max-w-xs md:max-w-md"
+            />
+          </div>
+          <div class="md:w-1/2 md:pl-12">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">
+              Download Our <span class="text-green-400">Mobile App</span>
+            </h2>
+            <p class="text-lg text-gray-300 mb-6">
+              Access all HealthHub Pro features on your mobile device. Track
+              your health, get reminders, and consult doctors anytime, anywhere.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <button
+                class="bg-black bg-opacity-40 text-white px-6 py-3 rounded-lg flex items-center"
+              >
+                <i class="fab fa-apple text-2xl mr-2"></i>
+                <div class="text-left">
+                  <div class="text-xs">Download on the</div>
+                  <div class="font-semibold">App Store</div>
+                </div>
+              </button>
+              <button
+                class="bg-black bg-opacity-40 text-white px-6 py-3 rounded-lg flex items-center"
+              >
+                <i class="fab fa-google-play text-2xl mr-2"></i>
+                <div class="text-left">
+                  <div class="text-xs">Get it on</div>
+                  <div class="font-semibold">Google Play</div>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 pt-16 pb-8 text-gray-400">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-12 mb-12">
+          <div>
+            <h3 class="text-white text-lg font-semibold mb-4">HealthHub Pro</h3>
+            <p class="mb-4">
+              Your trusted source for reliable health information and medical
+              advice.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-500 transition"
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-500 transition"
+              >
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-500 transition"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-500 transition"
+              >
+                <i class="fab fa-youtube"></i>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-white text-lg font-semibold mb-4">Quick Links</h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="hover:text-green-400 transition">Home</a>
+              </li>
+              <li>
+                <a href="#services" class="hover:text-green-400 transition"
+                  >Services</a
+                >
+              </li>
+              <li>
+                <a href="#symptoms" class="hover:text-green-400 transition"
+                  >Symptom Checker</a
+                >
+              </li>
+              <li>
+                <a href="#articles" class="hover:text-green-400 transition"
+                  >Articles</a
+                >
+              </li>
+              <li>
+                <a href="#contact" class="hover:text-green-400 transition"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-white text-lg font-semibold mb-4">Services</h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="hover:text-green-400 transition"
+                  >Symptom Checker</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-green-400 transition"
+                  >Health Library</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-green-400 transition"
+                  >Doctor Consultation</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-green-400 transition"
+                  >Medication Tracker</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-green-400 transition"
+                  >Wellness Plans</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-white text-lg font-semibold mb-4">Newsletter</h3>
+            <p class="mb-4">
+              Subscribe to our newsletter for the latest health tips and
+              updates.
+            </p>
+            <div class="flex">
+              <input
+                type="email"
+                placeholder="Your email"
+                class="bg-gray-800 text-white px-4 py-2 rounded-l-md focus:outline-none focus:ring-1 focus:ring-green-500 w-full"
+              />
+              <button
+                class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-r-md transition"
+              >
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center"
+        >
+          <div class="mb-4 md:mb-0">
+            © 2023 HealthHub Pro. All rights reserved.
+          </div>
+          <div class="text-sm">
+            <a href="#" class="hover:text-green-400 transition mr-4"
+              >Privacy Policy</a
+            >
+            <a href="#" class="hover:text-green-400 transition mr-4"
+              >Terms of Service</a
+            >
+            <a href="#" class="hover:text-green-400 transition">Disclaimer</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button
+      id="backToTop"
+      class="fixed bottom-8 right-8 w-12 h-12 bg-green-500 text-white rounded-full shadow-lg flex items-center justify-center transition opacity-0 invisible"
+    >
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+      // Back to Top Button
+      const backToTopButton = document.getElementById("backToTop");
+
+      window.addEventListener("scroll", () => {
+        if (window.pageYOffset > 300) {
+          backToTopButton.classList.remove("opacity-0", "invisible");
+          backToTopButton.classList.add("opacity-100", "visible");
+        } else {
+          backToTopButton.classList.remove("opacity-100", "visible");
+          backToTopButton.classList.add("opacity-0", "invisible");
+        }
+      });
+
+      backToTopButton.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      // Simple symptom selection functionality
+      document.querySelectorAll(".symptom-item").forEach((item) => {
+        item.addEventListener("click", function () {
+          this.classList.toggle("bg-gray-800");
+          this.classList.toggle("bg-green-900");
+
+          const icon = this.querySelector("img");
+          if (this.classList.contains("bg-green-900")) {
+            icon.style.filter = "brightness(0) invert(1)";
+          } else {
+            icon.style.filter = "";
+          }
+        });
+      });
+
+      // Search functionality
+      const searchForm = document.querySelector(".hero-section form");
+      if (searchForm) {
+        searchForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          const searchInput = this.querySelector('input[type="text"]');
+          if (searchInput.value.trim() !== "") {
+            alert(
+              `Searching for: ${searchInput.value.trim()}\n\nThis would normally perform a search through our health database.`
+            );
+          }
+        });
+      }      fetch('/api/hello')
+      .then(res => res.json())
+      .then(data => {
+        const p = document.createElement('p');
+        p.textContent = data.message;
+        document.body.appendChild(p);
+      });
+    
+    </script>
+  </body>
+</html>
